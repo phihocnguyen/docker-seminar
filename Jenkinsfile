@@ -9,7 +9,7 @@ pipeline {
 
         stage("Build Image"){
             steps{
-                sh 'docker ps'
+                sh 'docker version'
                 sh 'docker build -t phihocnguyen123/node-app:1.0 .'
             }
         }
