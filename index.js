@@ -7,6 +7,10 @@ const port = 3000;
 
 app.use(cors())
 
+app.get('/', async (req,res) => {
+    res.send('Hello World')
+}
+
 app.get('/customers', async (req, res) => {
     const users = await sequelize.query('SELECT * FROM Customer', {
         type: QueryTypes.SELECT
