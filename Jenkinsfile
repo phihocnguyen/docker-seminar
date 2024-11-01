@@ -6,11 +6,6 @@ pipeline {
                 checkout scm
             }
         }
-         stage('Initialize'){
-            def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
-
         stage("Build Image"){
             steps{
                 sh 'docker build -t phihocnguyen123/node-app:1.0'
