@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = "phihocnguyen123/node-app"
-        TAG = "2.0"
+        TAG = "3.0"
     }
     stages {
         stage("checkout"){
