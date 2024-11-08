@@ -1,4 +1,4 @@
-gpipeline {
+pipeline {
     agent any
     environment {
         IMAGE_NAME = "phihocnguyen123/node-app"
@@ -20,6 +20,13 @@ gpipeline {
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub-account', url: 'https://index.docker.io/v1/'){
                     sh "docker push ${IMAGE_NAME}:${TAG}"
+                }
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                script {
+                    sh "docker rmi ${IMAGE_NAME}:${TAG}"
                 }
             }
         }
