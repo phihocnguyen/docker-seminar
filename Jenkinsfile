@@ -23,13 +23,6 @@ pipeline {
                 }
             }
         }
-        stage('Cleanup') {
-            steps {
-                script {
-                    sh "docker rmi ${IMAGE_NAME}:${TAG}"
-                }
-            }
-        }
     }
     post {
         success {
